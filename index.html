@@ -73,17 +73,80 @@
       font-size: 0.95em;
     }
 
+    .description-container {
+      position: relative;
+      margin: 15px 0;
+    }
+
+    .description-content {
+      max-height: 120px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: relative;
+    }
+
+    .description-content.expanded {
+      max-height: 1000px;
+    }
+
+    .description-content::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(transparent, rgba(255,255,255,0.9));
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .description-content.expanded::after {
+      opacity: 0;
+    }
+
+    .show-more-btn {
+      background: none;
+      border: none;
+      color: #25d366;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 8px 0;
+      font-size: 0.9em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 5px;
+    }
+
+    .show-more-btn:hover {
+      color: #1ebe57;
+    }
+
+    .show-more-btn::after {
+      content: '▼';
+      font-size: 0.7em;
+      transition: transform 0.3s ease;
+    }
+
+    .show-more-btn.expanded::after {
+      transform: rotate(180deg);
+    }
+
     .whatsapp-btn {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
       background-color: #25d366;
       color: #fff;
-      padding: 10px 16px;
+      padding: 12px 20px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 500;
       font-size: 1em;
       transition: background-color 0.3s ease;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .whatsapp-btn:hover {
@@ -108,9 +171,33 @@
     }
 
     .modal-content {
-      width: 90%;
-      max-width: 800px;
-      height: 80vh;
+      width: auto;
+      max-width: 95vw;
+      height: auto;
+      padding: 0 24px;
+    }
+
+    .modal .swiper {
+      width: auto;
+      height: auto;
+    }
+
+    .modal .swiper-wrapper {
+      align-items: center;
+    }
+
+    .modal .swiper-slide{
+      display: flex;
+      justify-content: center;
+    }
+
+    .modal .swiper-slide img {
+      width: auto;
+      height: auto;
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
     }
 
     .modal-close {
@@ -123,6 +210,14 @@
       cursor: pointer;
       z-index: 1000;
     }
+
+    .observacao {
+  font-size: 0.35em;
+  color: #666;
+  font-style: italic;
+  margin: 3px 0;
+  line-height: 1.3;
+}
   </style>
 </head>
 <body>
@@ -134,8 +229,7 @@
 
   <div class="container">
 
-    <!-- Produto 1 -->
-
+    <!-- Produto 1 - TV LG 55" -->
     <div class="card">
       <div class="swiper swiper-thumb" data-gallery="1">
         <div class="swiper-wrapper">
@@ -147,73 +241,115 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-      <h2>TV LG 55" Polegadas</h2>
+      <h2>Smart TV LED 55" Ultra HD 4K LG</h2>
       <p><strong>R$ 1.500,00</strong></p>
-      <p>TV em perfeitas condições, funcionando tudo normalmente. A TV é Smart e possui 2 entradas HDMI. Vai com controle Smart Magic da LG em condição ok. O botão número 3 não funciona, mas de resto está normal.</p>
-      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV LG 55'Polegadas%20XYZ.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
+      <div class="description-container">
+        <div class="description-content">
+          <p>Tela de LED de 55 Polegadas<br> 
+            Resolução 4K Ultra HD (3840 x 2160)<br>
+            Smart TV com ThinQ AI (Inteligência Artificial da LG)<br>
+            4 Entradas HDMI<br>
+            2 Portas USB<br>
+            Wi-Fi integrado</p>
+        </div>
+        <button class="show-more-btn">Ver mais detalhes</button>
+      </div>
+      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV%20LG%2055%22%20Polegadas.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
     </div>
 
-    <!-- Produto 2 -->
-
+    <!-- Produto 2 - Mesa Cavalete Branca -->
     <div class="card">
-      <div class="swiper swiper-thumb" data-gallery="1">
+      <div class="swiper swiper-thumb" data-gallery="2">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="https://i.postimg.cc/4drFVSWL/Whats-App-Image-2025-05-26-at-16-58-05.jpg" alt="TV LG"></div>
-          <div class="swiper-slide"><img src="https://i.postimg.cc/7ZVcdXLh/Whats-App-Image-2025-05-26-at-16-56-40.jpg" alt="TV LG"></div>
-          <div class="swiper-slide"><img src="https://i.postimg.cc/RF3D3BLJ/Whats-App-Image-2025-05-26-at-16-58-11.jpg" alt="TV LG"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/85wfdZzQ/Whats-App-Image-2025-10-12-at-22-47-54.jpg" alt="Mesa Cavalete"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/gJ4Lyg2X/Whats-App-Image-2025-10-12-at-22-47-55.jpg" alt="Mesa Cavalete"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/KzQ3708L/Whats-App-Image-2025-10-12-at-22-47-55-1.jpg" alt="Mesa Cavalete"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/vTBg054m/Whats-App-Image-2025-10-12-at-22-47-55-2.jpg" alt="Mesa Cavalete"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/yxdgL0D8/Whats-App-Image-2025-10-12-at-22-47-55-3.jpg" alt="Mesa Cavalete"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/RhF6gwWW/Whats-App-Image-2025-10-12-at-22-48-34.jpg" alt="Mesa Cavalete"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/nrzj3qXs/Whats-App-Image-2025-10-12-at-22-50-07.jpg" alt="Mesa Cavalete"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-      <h2>TV LG 55" Polegadas</h2>
-      <p><strong>R$ 1.500,00</strong></p>
-      <p>TV em perfeitas condições, funcionando tudo normalmente. A TV é Smart e possui 2 entradas HDMI. Vai com controle Smart Magic da LG em condição ok. O botão número 3 não funciona, mas de resto está normal.</p>
-      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV LG 55'Polegadas%20XYZ.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
+      <h2>Mesa Cavalete Branca</h2>
+      <p><strong>R$ 99,00</strong></p>
+      
+      <div class="description-container">
+        <div class="description-content">
+          <p>Medidas:
+            Largura - 120cm<br>
+            Profundidade - 45cm<br>
+            Altura - 75,5cm<br>
+          
+
+           <p class="observacao">* demais medidas na última foto</p>
+            <p class="observacao">** cadeira não inclusa
+          </p>
+        </div>
+        <button class="show-more-btn">Ver mais detalhes</button>
+      </div>
+      
+      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20Mesa%20cavalete.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
     </div>
 
-    <!-- Produto 3 -->
-
+    <!-- Produto 3 - Lavadora Electrolux -->
     <div class="card">
-      <div class="swiper swiper-thumb" data-gallery="1">
+      <div class="swiper swiper-thumb" data-gallery="3">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="https://i.postimg.cc/4drFVSWL/Whats-App-Image-2025-05-26-at-16-58-05.jpg" alt="TV LG"></div>
-          <div class="swiper-slide"><img src="https://i.postimg.cc/7ZVcdXLh/Whats-App-Image-2025-05-26-at-16-56-40.jpg" alt="TV LG"></div>
-          <div class="swiper-slide"><img src="https://i.postimg.cc/RF3D3BLJ/Whats-App-Image-2025-05-26-at-16-58-11.jpg" alt="TV LG"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/7ZWV0MZp/Whats-App-Image-2025-10-12-at-23-25-25.jpg" alt="Lavadora Electrolux"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/3xcBmCxq/Whats-App-Image-2025-10-12-at-23-25-25-1.jpg" alt="Lavadora Electrolux"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-      <h2>TV LG 55" Polegadas</h2>
-      <p><strong>R$ 1.500,00</strong></p>
-      <p>TV em perfeitas condições, funcionando tudo normalmente. A TV é Smart e possui 2 entradas HDMI. Vai com controle Smart Magic da LG em condição ok. O botão número 3 não funciona, mas de resto está normal.</p>
-      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV LG 55'Polegadas%20XYZ.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
+      <h2>Lavadora de Pressão Electrolux PowerWash</h2>
+      <p><strong>R$ 400,00</strong></p>
+      <div class="description-container">
+        <div class="description-content">
+          <p>1450W<br>
+          1800 psi<br>
+        220V</p>
+        </div>
+        <button class="show-more-btn">Ver mais detalhes</button>
+      </div>
+      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20Lavadora%20Electrolux.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
     </div>
 
-    <!-- Produto 4 -->
-
+    <!-- Produto 4 - Aparador de grama -->
     <div class="card">
-      <div class="swiper swiper-thumb" data-gallery="1">
+      <div class="swiper swiper-thumb" data-gallery="4">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="https://i.postimg.cc/4drFVSWL/Whats-App-Image-2025-05-26-at-16-58-05.jpg" alt="TV LG"></div>
-          <div class="swiper-slide"><img src="https://i.postimg.cc/7ZVcdXLh/Whats-App-Image-2025-05-26-at-16-56-40.jpg" alt="TV LG"></div>
-          <div class="swiper-slide"><img src="https://i.postimg.cc/RF3D3BLJ/Whats-App-Image-2025-05-26-at-16-58-11.jpg" alt="TV LG"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/KvJz90L5/Whats-App-Image-2025-10-12-at-23-25-25-5.jpg" alt="Aparador Tramontina"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/BQqbcr8Y/Whats-App-Image-2025-10-12-at-23-25-25-2.jpg" alt="Aparador Tramontina"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/vH3BP09L/Whats-App-Image-2025-10-12-at-23-25-25-3.jpg" alt="Aparador Tramontina"></div>
+          <div class="swiper-slide"><img src="https://i.postimg.cc/NfpMNdTk/Whats-App-Image-2025-10-12-at-23-25-25-4.jpg" alt="Aparador Tramontina"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-      <h2>TV LG 55" Polegadas</h2>
-      <p><strong>R$ 1.500,00</strong></p>
-      <p>TV em perfeitas condições, funcionando tudo normalmente. A TV é Smart e possui 2 entradas HDMI. Vai com controle Smart Magic da LG em condição ok. O botão número 3 não funciona, mas de resto está normal.</p>
-      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV LG 55'Polegadas%20XYZ.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
+      <h2>Aparador de grama elétrico Tramontina - AP1000T</h2>
+      <p><strong>R$ 150,00</strong></p>
+      <div class="description-container">
+        <div class="description-content">
+          <p>Alça regulável<br>
+          Motor de 1000W de potência<br>
+        Rotação máxima de 11.000 rpm<br>
+      Diâmetro do corte de 28cm<br>
+    Fio de nylon com 1,8mm de espessura<br>
+  220V</p>
+        </div>
+        <button class="show-more-btn">Ver mais detalhes</button>
+      </div>
+      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20no%20Aparador%20de%20grama.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
     </div>
 
     <!-- Produto 5 -->
-
     <div class="card">
-      <div class="swiper swiper-thumb" data-gallery="1">
+      <div class="swiper swiper-thumb" data-gallery="5">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="https://i.postimg.cc/4drFVSWL/Whats-App-Image-2025-05-26-at-16-58-05.jpg" alt="TV LG"></div>
           <div class="swiper-slide"><img src="https://i.postimg.cc/7ZVcdXLh/Whats-App-Image-2025-05-26-at-16-56-40.jpg" alt="TV LG"></div>
@@ -225,20 +361,24 @@
       </div>
       <h2>TV LG 55" Polegadas</h2>
       <p><strong>R$ 1.500,00</strong></p>
-      <p>TV em perfeitas condições, funcionando tudo normalmente. A TV é Smart e possui 2 entradas HDMI. Vai com controle Smart Magic da LG em condição ok. O botão número 3 não funciona, mas de resto está normal.</p>
-      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV LG 55'Polegadas%20XYZ.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
+      <div class="description-container">
+        <div class="description-content">
+          <p>TV em perfeitas condições, funcionando tudo normalmente. A TV é Smart e possui 2 entradas HDMI. Vai com controle Smart Magic da LG em condição ok. O botão número 3 não funciona, mas de resto está normal.</p>
+        </div>
+        <button class="show-more-btn">Ver mais detalhes</button>
+      </div>
+      <a class="whatsapp-btn" href="https://wa.me/5548988317943?text=Olá!%20Tenho%20interesse%20na%20TV%20LG%2055%22%20Polegadas.%20Poderia%20me%20passar%20mais%20informações%3F" target="_blank">Quero esse!</a>
     </div>
 
   </div>
 
+  <!-- MODAL PARA AS IMAGENS -->
   <div class="modal" id="modal">
     <span class="modal-close" id="closeModal">&times;</span>
     <div class="modal-content">
       <div class="swiper swiper-modal">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="" alt=""></div>
-          <div class="swiper-slide"><img src="" alt=""></div>
-          <div class="swiper-slide"><img src="" alt=""></div>
+          <!-- Slides serão criados dinamicamente pelo JavaScript -->
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -249,14 +389,17 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
+    // SWIPER DAS IMAGENS
     const smallSwipers = document.querySelectorAll('.swiper-thumb');
     const modal = document.getElementById('modal');
     const modalSwiperWrapper = modal.querySelector('.swiper-modal .swiper-wrapper');
-    const modalSlides = modalSwiperWrapper.querySelectorAll('.swiper-slide img');
     const closeModal = document.getElementById('closeModal');
 
-    smallSwipers.forEach((swiperEl, index) => {
-      new Swiper(swiperEl, {
+    const smallInstances = new Map();
+
+    // Cria swipers pequenos
+    smallSwipers.forEach((swiperEl) => {
+      const inst = new Swiper(swiperEl, {
         loop: true,
         pagination: {
           el: swiperEl.querySelector('.swiper-pagination'),
@@ -267,37 +410,106 @@
           prevEl: swiperEl.querySelector('.swiper-button-prev'),
         },
       });
+      smallInstances.set(swiperEl, inst);
 
+      // Abrir modal ao clicar na galeria
       swiperEl.addEventListener('click', () => {
+        // Limpar slides anteriores do modal
+        modalSwiperWrapper.innerHTML = '';
+
+        // Copiar TODAS as imagens da galeria clicada para o modal
         const imgs = swiperEl.querySelectorAll('img');
-        imgs.forEach((img, i) => {
-          modalSlides[i].src = img.src;
-          modalSlides[i].alt = img.alt;
+        imgs.forEach((img) => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          
+          const newImg = document.createElement('img');
+          newImg.src = img.src;
+          newImg.alt = img.alt || '';
+          
+          slide.appendChild(newImg);
+          modalSwiperWrapper.appendChild(slide);
         });
+
+        // Mostrar modal
         modal.classList.add('active');
-        modalSwiper.slideTo(1);
+        document.body.style.overflow = 'hidden';
+
+        // (Re)criar o swiper do modal
+        if (window._modalSwiper) {
+          window._modalSwiper.destroy(true, true);
+          window._modalSwiper = null;
+        }
+        
+        window._modalSwiper = new Swiper('.swiper-modal', {
+          loop: true,
+          observer: true,
+          observeParents: true,
+          resizeObserver: true,
+          pagination: {
+            el: '.swiper-modal .swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-modal .swiper-button-next',
+            prevEl: '.swiper-modal .swiper-button-prev',
+          },
+        });
+
+        // Abrir na mesma foto da galeria pequena
+        const startIndex = smallInstances.get(swiperEl)?.realIndex ?? 0;
+        window._modalSwiper.slideToLoop(startIndex, 0);
       });
     });
 
-    const modalSwiper = new Swiper('.swiper-modal', {
-      loop: true,
-      pagination: {
-        el: '.swiper-modal .swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-modal .swiper-button-next',
-        prevEl: '.swiper-modal .swiper-button-prev',
-      },
+    // BOTÕES "VER MAIS DETALHES"
+    document.querySelectorAll('.show-more-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const descriptionContent = this.previousElementSibling;
+        
+        if (descriptionContent.classList.contains('expanded')) {
+          // Recolher
+          descriptionContent.classList.remove('expanded');
+          this.textContent = 'Ver mais detalhes';
+          this.classList.remove('expanded');
+        } else {
+          // Expandir
+          descriptionContent.classList.add('expanded');
+          this.textContent = 'Ver menos';
+          this.classList.add('expanded');
+        }
+      });
     });
 
+    // FECHAR MODAL
     closeModal.addEventListener('click', () => {
       modal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (window._modalSwiper) {
+        window._modalSwiper.destroy(true, true);
+        window._modalSwiper = null;
+      }
     });
 
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (window._modalSwiper) {
+          window._modalSwiper.destroy(true, true);
+          window._modalSwiper = null;
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (window._modalSwiper) {
+          window._modalSwiper.destroy(true, true);
+          window._modalSwiper = null;
+        }
       }
     });
   </script>
